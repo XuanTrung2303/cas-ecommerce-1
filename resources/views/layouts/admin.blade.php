@@ -21,6 +21,11 @@
     <link rel="stylesheet" href="{{ asset('/backend/css/style.css') }}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{ asset('/backend/images/favicon.png') }}" />
+    <!-- Sweetalert & toastr -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/toastr/toastr.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('backend/vendors/sweetalert/sweetalert.css') }}"> --}}
+    <!-- End sweetalert & toastr -->
+
 </head>
 
 <body>
@@ -57,12 +62,12 @@
             <!-- aside end -->
         @endguest
 
-
+        @yield('content_admin')
 
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{ asset('/backend/vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/js/vendor.bundle.base.js') }}" type="text/javascript"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
     <script src="{{ asset('/backend/vendors/chart.js/Chart.min.js') }}"></script>
@@ -77,6 +82,67 @@
     <!-- Custom js for this page -->
     <script src="{{ asset('/backend/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
+    <!-- Sweetalert & toastr -->
+    <script src="{{ asset('backend/vendors/sweetalert/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('backend/vendors/toastr/toastr.min.js') }}"></script>
+    <script>
+        $(document).on("click", "#delete", function(e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            swal({
+                title: "Are you Want to delete?",
+                text: "Once Delete, this will be Permanently Delete!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = link;
+                } else {
+                    swal("Safe Data!");
+                }
+            });
+        });
+    </script>
+    {{-- before logout showing alert message --}}
+    <script>
+        $(document).on("click", "#logout", function(e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+            swal({
+                title: "Are you Want to logout?",
+                text: "",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = link;
+                } else {
+                    swal("Not Logout!");
+                }
+            });
+        });
+    </script>
+    <script>
+        @if (Session::has('messege'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info("{{ Session::get('messege') }}");
+                    break;
+                case 'success':
+                    toastr.success("{{ Session::get('messege') }}");
+                    break;
+                case 'warning':
+                    toastr.warning("{{ Session::get('messege') }}");
+                    break;
+                case 'error':
+                    toastr.error("{{ Session::get('messege') }}");
+                    break;
+            }
+        @endif
+    </script>
 </body>
 
 </html>
