@@ -23,9 +23,12 @@
     <link rel="shortcut icon" href="{{ asset('/backend/images/favicon.png') }}" />
     <!-- Sweetalert & toastr -->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/toastr/toastr.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('backend/vendors/sweetalert/sweetalert.css') }}"> --}}
     <!-- End sweetalert & toastr -->
-
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('/backend/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+        href="{{ asset('/backend/vendors/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/backend/vendors/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
 </head>
 
 <body>
@@ -62,7 +65,7 @@
             <!-- aside end -->
         @endguest
 
-        @yield('content_admin')
+        @yield('login_admin')
 
     </div>
     <!-- container-scroller -->
@@ -83,8 +86,8 @@
     <script src="{{ asset('/backend/js/dashboard.js') }}"></script>
     <!-- End custom js for this page -->
     <!-- Sweetalert & toastr -->
-    <script src="{{ asset('backend/vendors/sweetalert/sweetalert.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('backend/vendors/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/sweetalert/sweetalert.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/backend/vendors/toastr/toastr.min.js') }}"></script>
     <script>
         $(document).on("click", "#delete", function(e) {
             e.preventDefault();
@@ -142,6 +145,50 @@
                     break;
             }
         @endif
+    </script>
+    <!-- End sweetalert & toastr -->
+    <!-- DataTables  & Plugins -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="{{ asset('/backend/vendors/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/jszip/jszip.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/pdfmake/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/pdfmake/vfs_fonts.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.print.min.js') }}"></script>
+    <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script>
+        $(function() {
+            $.noConflict();
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
+    </script>
+    <!-- jQuery -->
+    <script src="{{ asset('/backend/vendors/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>
 </body>
 

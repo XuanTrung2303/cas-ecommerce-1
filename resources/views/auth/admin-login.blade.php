@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('content_admin')
+@section('login_admin')
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
             <div class="content-wrapper d-flex align-items-center auth">

@@ -52,10 +52,10 @@
                             <a class="nav-link dropdown-toggle" id="profileDropdown" href="#"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 <div class="nav-profile-img">
-                                    <img src="{{ asset('/backend/images/faces/face28.png') }}" alt="image">
+                                    <img src="{{ asset('/backend/images/faces/Profile.png') }}" alt="image">
                                 </div>
                                 <div class="nav-profile-text">
-                                    <p class="mb-1 text-black">Henry Klein</p>
+                                    <p class="mb-1 text-black">{{ Auth::user()->name }}</p>
                                 </div>
                             </a>
                             <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
