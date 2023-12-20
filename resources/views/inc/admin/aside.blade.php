@@ -22,7 +22,7 @@
                             <a class="nav-link" href="{{ route('category.index') }}">Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/ui-features/dropdowns.html">
+                            <a class="nav-link" href="{{ route('subcategory.index') }}">
                                 Sub Category
                             </a>
                         </li>

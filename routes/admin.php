@@ -10,11 +10,21 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'is_a
     Route::get('/admin/home', 'AdminController@admin')->name('admin.home');
     Route::get('/admin/logout', 'AdminController@logout')->name('admin.logout');
 
+    // Category routes
     Route::group(['prefix' => 'category'], function () {
         Route::get('/', 'CategoryController@index')->name('category.index');
         Route::post('/store', 'CategoryController@store')->name('category.store');
         Route::get('/edit/{id}', 'CategoryController@edit');
         Route::post('/update', 'CategoryController@update')->name('category.update');
         Route::get('/delete/{id}', 'CategoryController@destroy')->name('category.delete');
+    });
+
+    // subCategory routes
+    Route::group(['prefix' => 'subcategory'], function () {
+        Route::get('/', 'SubcategoryController@index')->name('subcategory.index');
+        Route::post('/store', 'SubcategoryController@store')->name('subcategory.store');
+        Route::get('/edit/{id}', 'SubcategoryController@edit');
+        Route::post('/update', 'SubcategoryController@update')->name('subcategory.update');
+        Route::get('/delete/{id}', 'SubcategoryController@destroy')->name('subcategory.delete');
     });
 });
