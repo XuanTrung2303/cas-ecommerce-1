@@ -27,7 +27,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/ui-features/typography.html">
+                            <a class="nav-link" href="{{ route('childcategory.index') }}">
                                 Child Category
                             </a>
                         </li>

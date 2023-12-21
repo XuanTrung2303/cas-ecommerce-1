@@ -149,11 +149,14 @@
     </script>
     <!-- End sweetalert & toastr -->
     <!-- DataTables  & Plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="{{ asset('/backend/vendors/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('/backend/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('/backend/vendors/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/backend/vendors/datatables-bs4/js/dataTables.bootstrap4.min.js') }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset('/backend/vendors/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('/backend/vendors/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('/backend/vendors/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
@@ -185,6 +188,7 @@
     </script>
     <!-- jQuery -->
     <script src="{{ asset('/backend/vendors/jquery/jquery.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>
