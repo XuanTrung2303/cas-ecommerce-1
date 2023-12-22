@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content_admin')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.css" />
     <!-- main-panel -->
     <div class="main-panel">
         <div class="content-wrapper">
@@ -10,7 +11,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Child Category</h1>
+                            <h1>Brands</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="float-sm-right">
@@ -31,7 +32,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h1 class="card-title">All child-categories list</h1>
+                                    <h1 class="card-title">All brands list</h1>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- /.card-header -->
@@ -40,14 +41,13 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>ChildCategory Name</th>
-                                                <th>Category Slug</th>
-                                                <th>SubCategory Name</th>
+                                                <th>Brand Name</th>
+                                                <th>Brand Slug</th>
+                                                <th>Brand Logo</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -69,36 +69,27 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addModalLabel">Add New Child Category</h5>
+                        <h5 class="modal-title" id="addModalLabel">Add New Brand</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{{ route('childcategory.store') }}" method="post" id="add-form">
+                    <form action="{{ route('brand.store') }}" method="post" enctype="multipart/form-data" id="add-form">
                         @csrf
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="category_name">Category/SubCategory Name</label>
-                                <select class="form-control" name="subcategory_id" required>
-                                    @foreach ($category as $row)
-                                        @php
-                                            $subcate = DB::table('subcategories')
-                                                ->where('category_id', $row->id)
-                                                ->get();
-                                        @endphp
-                                        <option disabled style="color:blue;">{{ $row->category_name }}</option>
-                                        @foreach ($subcate as $row)
-                                            <option value="{{ $row->id }}"> ---- {{ $row->subcategory_name }}</option>
-                                        @endforeach
-                                    @endforeach
-                                </select>
+                                <label for="brand_name">Brand Name</label>
+                                <input type="text" class="form-control" name="brand_name" required>
+                                <small id="brandName" class="form-text text-muted">
+                                    This is your brand.
+                                </small>
                             </div>
                             <div class="form-group">
-                                <label for="subcategory_name">Child Category Name</label>
-                                <input type="text" class="form-control" id="childcategory_name" name="childcategory_name"
-                                    required>
-                                <small id="subCategoryName" class="form-text text-muted">
-                                    This is your child category.
+                                <label for="brand_name">Brand Logo</label>
+                                <input type="file" class="dropify" data-height="140" id="input-file-now"
+                                    name="brand_logo" required>
+                                <small id="brandLogo" class="form-text text-muted">
+                                    This is your brand logo.
                                 </small>
                             </div>
                         </div>
@@ -117,7 +108,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Edit Child Category</h5>
+                        <h5 class="modal-title" id="editModalLabel">Edit Brand</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -135,27 +126,36 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+
     <script type="text/javascript">
-        $(function childcategory() {
+        $('.dropify').dropify();
+    </script>
+    <script type="text/javascript">
+        $(function brand() {
             var table = $('#ytable').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('childcategory.index') }}",
+                ajax: "{{ route('brand.index') }}",
                 columns: [{
                         data: 'DT_RowIndex',
                         name: 'DT_RowIndex'
                     },
                     {
-                        data: 'childcategory_name',
-                        name: 'childcategory_name'
+                        data: 'brand_name',
+                        name: 'brand_name'
                     },
                     {
-                        data: 'category_name',
-                        name: 'category_name'
+                        data: 'brand_slug',
+                        name: 'brand_slug'
                     },
                     {
-                        data: 'subcategory_name',
-                        name: 'subcategory_name'
+                        //
+                        data: 'brand_logo',
+                        name: 'brand_logo',
+                        render: function(data, type, full, meta) {
+                            return "<img src=\"" + data + "\" height=\"30\" />";
+                        }
                     },
                     {
                         data: 'action',
@@ -171,7 +171,7 @@
     <script type="text/javascript">
         $('body').on('click', '.edit', function() {
             let id = $(this).data('id');
-            $.get("childcategory/edit/" + id, function(data) {
+            $.get("brand/edit/" + id, function(data) {
                 $("#modal_body").html(data);
             });
         });

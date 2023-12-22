@@ -31,18 +31,13 @@
                                 Child Category
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pages/ui-features/typography.html">
-                                Brand
-                            </a>
-                        </li>
                     </ul>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/icons/mdi.html">
+                <a class="nav-link" href="{{ route('brand.index') }}">
                     <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
-                    <span class="menu-title">Icons</span>
+                    <span class="menu-title">Brand</span>
                 </a>
             </li>
             <li class="nav-item">
