@@ -47,4 +47,16 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'is_a
         Route::post('/update', 'BrandController@update')->name('brand.update');
         Route::get('/delete/{id}', 'BrandController@destroy')->name('brand.delete');
     });
+
+    // Setting routes
+    Route::group(['prefix' => 'setting'], function () {
+        // SEO Setting
+        Route::group(['prefix' => 'seo'], function () {
+            Route::get('/', 'SettingController@seo')->name('seo.setting');
+            Route::post('/update/{id}', 'SettingController@seoUpdate')->name('seo.setting.update');
+            // Route::get('/edit/{id}', 'BrandController@edit');
+            // Route::post('/update', 'BrandController@update')->name('brand.update');
+            // Route::get('/delete/{id}', 'BrandController@destroy')->name('brand.delete');
+        });
+    });
 });

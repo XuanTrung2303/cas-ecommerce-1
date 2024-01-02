@@ -35,6 +35,41 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#setting" aria-expanded="false"
+                    aria-controls="setting">
+                    <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                    <span class="menu-title">Settings</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="setting">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('seo.setting') }}">SEO Setting</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('subcategory.index') }}">
+                                Website Setting
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('childcategory.index') }}">
+                                Page Management
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('childcategory.index') }}">
+                                SMTP Setting
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('childcategory.index') }}">
+                                Payment Gateway
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('brand.index') }}">
                     <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
                     <span class="menu-title">Brand</span>
