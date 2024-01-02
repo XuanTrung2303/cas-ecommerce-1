@@ -62,7 +62,7 @@
                                 aria-labelledby="profileDropdown" data-x-placement="bottom-end">
                                 <div class="p-3 text-center bg-primary">
                                     <img class="img-avatar img-avatar48 img-avatar-thumb"
-                                        src="{{ asset('/backend/images/faces/face28.png') }}" alt="">
+                                        src="{{ asset('/backend/images/faces/Profile.png') }}" alt="">
                                 </div>
                                 <div class="p-2">
                                     <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
@@ -96,6 +96,11 @@
                                     </a>
                                     <a class="dropdown-item" id="logout" href="{{ route('admin.logout') }}">
                                         {{ __('Logout') }}
+                                    </a>
+                                    <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
+                                        href="{{ route('admin.password.change') }}">
+                                        <span>Change Password</span>
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                 </div>
                             </div>
