@@ -50,15 +50,27 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'is_a
 
     // Setting routes
     Route::group(['prefix' => 'setting'], function () {
+
         // SEO Setting
         Route::group(['prefix' => 'seo'], function () {
             Route::get('/', 'SettingController@seo')->name('seo.setting');
             Route::post('/update/{id}', 'SettingController@seoUpdate')->name('seo.setting.update');
         });
+
         // Smtp Setting
         Route::group(['prefix' => 'smtp'], function () {
             Route::get('/', 'SettingController@smtp')->name('smtp.setting');
             Route::post('/update/{id}', 'SettingController@smtpUpdate')->name('smtp.setting.update');
+        });
+
+        // Page Setting
+        Route::group(['prefix' => 'page'], function () {
+            Route::get('/', 'PageController@index')->name('page.index');
+            Route::get('/create', 'PageController@create')->name('page.create');
+            Route::post('/store', 'PageController@store')->name('page.store');
+            Route::get('/edit/{id}', 'PageController@edit')->name('page.edit');
+            Route::post('/update/{id}', 'PageController@update')->name('page.update');
+            Route::get('/delete/{id}', 'PageController@destroy')->name('page.delete');
         });
     });
 });

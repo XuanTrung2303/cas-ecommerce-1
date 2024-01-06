@@ -17,6 +17,11 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
+
+    <!-- summernote -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/backend/vendors/summernote/summernote-bs4.css') }}">
+
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('/backend/css/style.css') }}">
     <!-- End layout styles -->
@@ -149,7 +154,7 @@
     </script>
     <!-- End sweetalert & toastr -->
     <!-- DataTables  & Plugins -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
     <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="{{ asset('/backend/vendors/datatables/jquery.dataTables.min.js') }}"></script>
@@ -166,6 +171,15 @@
     <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ asset('/backend/vendors/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+
+    {{-- Summernote --}}
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>
+    <script src="{{ asset('/backend/vendors/summernote/summernote-bs4.min.js') }}"></script>
+    <script type="text/javascript">
+        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js', function() {
+            $('#textarea').summernote()
+        })
+    </script>
     <script>
         $(function() {
             $.noConflict();
@@ -192,6 +206,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous">
     </script>
+
 </body>
 
 </html>

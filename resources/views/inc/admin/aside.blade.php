@@ -52,8 +52,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('childcategory.index') }}">
-                                Page Management
+                            <a class="nav-link" href="{{ route('page.index') }}">
+                                Page Create
                             </a>
                         </li>
                         <li class="nav-item">
