@@ -53,7 +53,7 @@
                             <a class="nav-link" href="{{ route('seo.setting') }}">SEO Setting</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('subcategory.index') }}">
+                            <a class="nav-link" href="{{ route('website.setting') }}">
                                 Website Setting
                             </a>
                         </li>
