@@ -35,6 +35,12 @@
                 </div>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('brand.index') }}">
+                    <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
+                    <span class="menu-title">Brand</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" data-bs-toggle="collapse" href="#setting" aria-expanded="false"
                     aria-controls="setting">
                     <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
@@ -72,7 +78,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('brand.index') }}">
                     <span class="icon-bg"><i class="mdi mdi-contacts menu-icon"></i></span>
-                    <span class="menu-title">Brand</span>
+                    <span class="menu-title">Warehouse</span>
                 </a>
             </li>
             <li class="nav-item">

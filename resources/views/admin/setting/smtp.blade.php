@@ -34,33 +34,35 @@
                                             <label for="exampleInputEmail1">Mail Mailer</label>
                                             <input type="hidden" name="types[]" value="MAIL_MAILER">
                                             <input type="text" class="form-control" name="MAIL_MAILER"
-                                                value="{{ $smtp->mailer }}" placeholder="Mail Lailer Example: smtp">
+                                                value="{{ env('MAIL_MAILER') }}" placeholder="Mail Lailer Example: smtp">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Mail Host</label>
                                             <input type="hidden" name="types[]" value="MAIL_HOST">
                                             <input type="text" class="form-control" name="MAIL_HOST"
-                                                value="{{ $smtp->host }}" placeholder="Mail Host">
+                                                value="{{ env('MAIL_HOST') }}" placeholder="Mail Host">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Mail Port</label>
                                             <input type="hidden" name="types[]" value="MAIL_PORT">
                                             <input type="text" class="form-control" name="MAIL_PORT"
-                                                value="{{ $smtp->port }}" placeholder="Mail Port Example: 2525">
+                                                value="{{ env('MAIL_PORT') }}" placeholder="Mail Port Example: 2525">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Mail Username</label>
                                             <input type="hidden" name="types[]" value="MAIL_USERNAME">
                                             <input type="text" class="form-control" name="MAIL_USERNAME"
-                                                value="{{ $smtp->user_name }}" placeholder="Mail Username">
+                                                value="{{ env('MAIL_USERNAME') }}" placeholder="Mail Username">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Mail Password</label>
                                             <input type="hidden" name="types[]" value="MAIL_PASSWORD">
                                             <input type="text" class="form-control" name="MAIL_PASSWORD"
-                                                value="{{ $smtp->password }}" placeholder="Mail Password">
+                                                value="{{ env('MAIL_PASSWORD') }}" placeholder="Mail Password">
                                         </div>
                                     </div>
+                                    <!-- /.card-body -->
+
                                     <!-- /.card-body -->
 
                                     <div class="card-footer">
